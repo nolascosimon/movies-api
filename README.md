@@ -19,8 +19,6 @@ py app.py
 
 The server runs at http://127.0.0.1:5000
 
-To test it, open a second terminal and use the curl commands below. The commands are written for Windows Command Prompt.
-
 ## Movie fields
 
 | Field | Type | Required |
