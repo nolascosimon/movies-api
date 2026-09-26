@@ -1,0 +1,6 @@
+movies.db
+__pycache__/
+venv/
+.venv/
+.idea/
+screenshots/
