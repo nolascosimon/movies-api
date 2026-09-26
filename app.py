@@ -144,6 +144,9 @@ def delete_movie(movie_id):
     db.close()
     return jsonify({"message": "Movie deleted"}), 200
 
+@app.route("/")
+def home():
+    return jsonify({"message": "Movies API is running. Try /movies"}), 200
 
 setup_db()
 
