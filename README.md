@@ -2,6 +2,16 @@
 
 A small REST API for movies, made with Flask and SQLite. It supports GET, POST, PUT and DELETE. The first time the server runs, it creates a database with 15 movies.
 
+## Live URL
+
+https://movies-api-1icz.onrender.com/movies
+
+Test it with curl:
+
+curl -i https://movies-api-1icz.onrender.com/movies
+
+The server is on Render's free plan. It goes to sleep when idle, so the first request can take up to a minute. Movies added with POST are not kept after a restart, but the 15 starting movies always come back.
+
 ## How to run it
 
 1. Install Python 3.
