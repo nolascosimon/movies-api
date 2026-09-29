@@ -14,8 +14,10 @@ The server is on Render's free plan. It goes to sleep when idle, so the first re
 
 ## How to run it
 
+The backend and the frontend run together. Flask serves the files in the `frontend` folder, so there is nothing else to install or start.
+
 1. Install Python 3.
-2. Install Flask:
+2. Install the requirements:
 
 ```
 py -m pip install -r requirements.txt
@@ -27,7 +29,35 @@ py -m pip install -r requirements.txt
 py app.py
 ```
 
-The server runs at http://127.0.0.1:5000
+4. Open http://127.0.0.1:5000 in your browser to use the frontend.
+
+The API is still available at http://127.0.0.1:5000/movies
+
+## Frontend
+
+The frontend is in the `frontend` folder and is made with plain HTML, CSS and JavaScript using the Fetch API.
+
+| File | What it does |
+|---|---|
+| frontend/index.html | The page layout |
+| frontend/style.css | The styling |
+| frontend/script.js | The fetch calls and the screens |
+
+What you can do in the app:
+
+| Action | How | API call |
+|---|---|---|
+| See all movies | Opens on the home page | GET /movies |
+| See one movie | Click View on a movie | GET /movies/:id |
+| Add a movie | Click Add Movie and Save | POST /movies |
+| Edit a movie | Click Edit and Save | PUT /movies/:id |
+| Delete a movie | Click Delete and confirm | DELETE /movies/:id |
+
+The app shows a Loading message while data is being fetched, shows the error message from the API when it returns a 400, and shows a Movie not found screen when it returns a 404.
+
+### About CORS
+
+Browsers block a page from calling an API on a different origin, and a different port counts as a different origin. To avoid this, Flask serves the frontend files itself, so the page and the API share the same origin (http://127.0.0.1:5000) and the browser allows the calls.
 
 ## Movie fields
 

@@ -1,7 +1,7 @@
 import sqlite3
 from flask import Flask, jsonify, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="frontend", static_url_path="")
 DB_FILE = "movies.db"
 
 REQUIRED_FIELDS = ["title", "genre", "director", "release_year", "rating"]
@@ -146,7 +146,7 @@ def delete_movie(movie_id):
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Movies API is running. Try /movies"}), 200
+    return app.send_static_file("index.html")
 
 setup_db()
 
