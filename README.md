@@ -48,6 +48,7 @@ What you can do in the app:
 | Action | How | API call |
 |---|---|---|
 | See all movies | Opens on the home page | GET /movies |
+| Search movies | Type in the search box on the home page | Filters the list already loaded from GET /movies |
 | See one movie | Click View on a movie | GET /movies/:id |
 | Add a movie | Click Add Movie and Save | POST /movies |
 | Edit a movie | Click Edit and Save | PUT /movies/:id |

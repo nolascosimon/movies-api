@@ -150,14 +150,12 @@ button.danger:hover {
   border-radius: 10px;
 }
 
-.genre-label {
+.poster-title {
   padding: 0 16px;
   text-align: center;
   color: rgba(255, 255, 255, 0.92);
   font-size: 18px;
   font-weight: bold;
-  letter-spacing: 3px;
-  text-transform: uppercase;
 }
 
 .rating {
@@ -187,14 +185,6 @@ button.danger:hover {
   margin-right: 4px;
   vertical-align: -2px;
   color: var(--accent);
-}
-
-.year {
-  position: absolute;
-  bottom: 12px;
-  left: 14px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 13px;
 }
 
 .scifi { background: linear-gradient(135deg, #2f6488, #17384d); }

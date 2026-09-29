@@ -63,6 +63,16 @@ async function request(url, options) {
 
 let movies = [];
 
+function posterHtml(movie, big) {
+  let html =
+    '<div class="poster' + (big ? " big" : "") + " " + genreClass(movie.genre) + '">' +
+    '<span class="poster-title">' + esc(movie.title) + "</span>";
+  if (!big) {
+    html += '<span class="rating">' + star + movie.rating.toFixed(1) + "</span>";
+  }
+  return html + "</div>";
+}
+
 function cardsHtml(list) {
   if (list.length === 0) {
     return '<p class="state">No movies match your search.</p>';
@@ -71,13 +81,10 @@ function cardsHtml(list) {
   for (const movie of list) {
     html +=
       '<div class="card">' +
-      '<div class="poster ' + genreClass(movie.genre) + '">' +
-      '<span class="genre-label">' + esc(movie.genre) + "</span>" +
-      '<span class="rating">' + star + movie.rating.toFixed(1) + "</span>" +
-      '<span class="year">' + movie.release_year + "</span></div>" +
+      posterHtml(movie, false) +
       '<div class="card-body">' +
-      "<h3>" + esc(movie.title) + "</h3>" +
-      '<p class="director">Directed by ' + esc(movie.director) + "</p>" +
+      "<h3>" + esc(movie.genre) + "</h3>" +
+      '<p class="director">Directed by ' + esc(movie.director) + ", " + movie.release_year + "</p>" +
       '<div class="actions">' +
       '<button onclick="showDetail(' + movie.id + ')">View</button>' +
       '<button onclick="showForm(' + movie.id + ')">Edit</button>' +
@@ -137,7 +144,7 @@ async function showDetail(id) {
   const movie = result.data;
   view.innerHTML =
     '<div class="detail">' +
-    '<div class="poster big ' + genreClass(movie.genre) + '"><span class="genre-label">' + esc(movie.genre) + "</span></div>" +
+    posterHtml(movie, true) +
     "<div>" +
     "<h2>" + esc(movie.title) + "</h2>" +
     "<p><span>Genre:</span> " + esc(movie.genre) + "</p>" +
