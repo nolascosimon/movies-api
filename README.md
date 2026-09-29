@@ -41,6 +41,7 @@ The frontend is in the `frontend` folder and is made with plain HTML, CSS and Ja
 |---|---|
 | frontend/index.html | The page layout |
 | frontend/style.css | The styling |
+| frontend/logo.svg | The logo in the header and browser tab |
 | frontend/script.js | The fetch calls and the screens |
 
 What you can do in the app:
